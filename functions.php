@@ -32,3 +32,14 @@ function debug($arr){
     print_r($arr);
     echo '</pre><hr>';
 }
+
+function customMultiSort($array,$field) {
+    $sortArr = array();
+    foreach($array as $key=>$val){
+        $sortArr[$key] = $val[$field];
+    }
+
+    array_multisort($sortArr,$array);
+
+    return $array;
+}
