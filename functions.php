@@ -10,3 +10,25 @@ function convertFullName($string)
     }
    return $result;  // Результат: Фамилия И.О.
 }
+
+function getItemsFromDate($date)
+{
+    $filename = __DIR__ . "/data.json";
+    $result = [];
+    if (file_exists($filename)) {
+        $array = json_decode(file_get_contents($filename), true);
+    }
+    foreach ($array as $item){
+        if(strtotime($item['created']) >= $date){
+           array_push( $result, $item['created']);
+        }
+    }
+
+    return $result;
+}
+
+function debug($arr){
+    echo '<pre>';
+    print_r($arr);
+    echo '</pre><hr>';
+}
