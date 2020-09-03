@@ -39,7 +39,7 @@ function customMultiSort($array,$field) {
         $sortArr[$key] = $val[$field];
     }
 
-    array_multisort($sortArr,$array);
+    array_multisort($sortArr,SORT_NUMERIC, SORT_DESC, $array);
 
     return $array;
 }
